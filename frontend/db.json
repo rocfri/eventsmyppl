@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 100,
+      "username": "Monkey",
+      "email": "monkey@jungle.org",
+      "pass": "1234"
+    },
+    {
+      "id": 101,
+      "username": "Bird",
+      "email": "burdistheword@jungle.org",
+      "pass": "4321"
+    },
+    {
+      "username": "test",
+      "email": "test",
+      "pass": "test",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": "",
+      "phone": "",
+      "id": 102
+    }
+    
+  ]
+}
