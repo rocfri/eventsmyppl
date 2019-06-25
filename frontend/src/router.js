@@ -13,10 +13,7 @@ const router = new Router({
     mode: 'history', // uris without hashes #, see https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
     routes: [
         { path: '/', component: Login,},
-        {path:'/dashboard', component: Dashboard,
-        meta: {
-          requiresAuth: true
-        }},
+        {path:'/dashboard', component: Dashboard},
         { path: '/register', component: Register},
 
         // otherwise redirect to home

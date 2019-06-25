@@ -4,10 +4,10 @@
     <div id="nav">
       <span v-if="isLoggedIn"> <a @click="logout">Logout</a></span>
       <span v-else> <router-link to="/">Login</router-link> | </span>
-      <router-link to="/register">Register</router-link>
+      <router-link to="/register">Register</router-link> | <router-link to="/dashboard">Dashboard</router-link>
 
     </div>
-    <router-view :hellomsg="msg"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,7 +17,6 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: ''
     }
   },
   computed: {

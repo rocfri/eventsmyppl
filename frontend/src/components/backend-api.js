@@ -23,13 +23,14 @@ export default {
 
         });
     },
-    getUser( email, pass) {
-        return AXIOS.get(`/users`,{
-                email: email,
-                pass: pass
-            })
-            .catch(error => {
-              console.log(error.response)
-            });
+    getUserData() {
+      console.log("getUserData Reached")
+      try{
+        console.log("try getData reached")
+        const res = AXIOS.get('/users/')
+        return res.data;
+        } catch(e){
+          console.error(e)
+        }
     }
 }

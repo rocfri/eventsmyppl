@@ -1,76 +1,46 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import api from './components/backend-api'
-
-Vue.use(Vuex);
+import {api } from './components/backend-api'
+import axios from 'axios'
+Vue.use(Vuex, axios);
 
 export default new Vuex.Store({
+//Starting State
     state: {
-      status:'',
-        loginSuccess: false,
-        loginError: false,
-        email: null,
-        pass: null,
-        token: localStorage.getItem('token') || '',
-        user: {}
+      users:[]
     },
-    mutations: {
-      auth_request(state){
-        state.status = 'loading'
-      },
-
-        auth_success(state, token, user){
-          state.status = 'success'
-          state.token = token
-          state.user = user
-        },
-        auth_error(state){
-          state.status = 'error'
-        },
-        logout(state){
-          state.status = ''
-          state.token = ''
-        },
-    },
+//Action that needs to be taken
     actions: {
-        login({commit}, user) {
-            return new Promise((resolve, reject) => {
-              commit('auth_request')
-                api.getUser(email, pass)
-                    .then(response => {
-                      const token = response.data.token
-                      const user = response.data.user
-                      localStorage.setItem('token', token)
-                      axios.defaults.headers.common['Authroization'] = getSecuredTextFromBackend
-                      commit('auth_success', token, user)
-                      resolve(response)
-                  })
-                    .catch(error => {
-                        console.log("Error: " + error);
-                        // place the loginError state into our vuex store
-                        commit('auth_error')
-                            localStorage.removeItem('token')
-                            reject(error)
-                        })
-                    })
-                  },
-
-          logout({commit}){
-            return new Promise((resolve, reject) =>{
-              commit('logout')
-              localStorage.remoteItem('token')
-              delete axios.defaults.headers.common['Authorization']
-              resolve()
-            })
-          }
+        loadUsers({commit}){
+          console.log ("Load Users")
+          axios
+          .get('http://localhost:3000/users/')
+          .then(data =>{
+            console.log(data.data)
+            let users = data.data
+            commit('SET_USERS', users)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+        },
+        logout({commit}){
+          //
+        }
       },
-
+//changes to make to incoming data
+mutations: {
+  //This passes the users data we got in the loadUsers Action and sets it to the state variable/array
+  SET_USERS(state, users){
+    state.users = users
+  }
+},
 
     getters: {
-        isLoggedIn: state => !!state.token,
-        authStatus: state => state.status,
+
         getUserEmail: state => state.email,
         getUserName: state => state.username,
-        getUserPass: state => state.pass
+        getUserPass: state => state.pass,
+        getUserId: state => state.id
     }
 })
