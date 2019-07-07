@@ -11,6 +11,17 @@
       "username": "Bird",
       "email": "burdistheword@jungle.org",
       "pass": "4321"
+    },
+    {
+      "username": "rochelle",
+      "email": "rochelle@live.com",
+      "pass": "1234",
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": "",
+      "phone": "",
+      "id": 102
     }
   ]
 }
