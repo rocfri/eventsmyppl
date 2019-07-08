@@ -23,6 +23,7 @@ export default {
 
         });
     },
+    
     getUserData() {
       console.log("getUserData Reached")
       try{

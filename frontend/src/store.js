@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {api } from './components/backend-api'
+import api  from './components/backend-api'
 import axios from 'axios'
-import vemail from Login
 
 Vue.use(Vuex, axios);
 
@@ -10,7 +9,12 @@ export default new Vuex.Store({
 //Starting State
     state: {
       users:[],
-      user:''
+      foundUser:'',
+      UserName: null,
+      UserEmail: null,
+      UserId: null,
+      loginSuccess:  false,
+      loginError: false
     },
 //Action that needs to be taken
   actions: {
@@ -27,19 +31,31 @@ export default new Vuex.Store({
           })
         },
  logoutUser({commit}){
-          //
+          //TODO
         },
-  loadPerson(vemail, vpassword){
-          let users = this.users
-          let foundUser = users.filter(user =>{
-            return this.vemail === user.email && this.vpassword ===user.pass;
-          })
+  findPerson({commit, state},{email, password}){
+
+      let users = state.users
+
+      let foundUser = users.filter(user =>{
+          return email === user.email && password === user.pass;
+        });
+
           if(foundUser.length){
             let user = foundUser[0];
-            //this.$router.push('/Dashboard')
-          }else{
-            this.message = "Email or password incorrect"
-          }
+            console.log("User:" + user.username +" " +"found")
+            //setter
+              commit('SET_PERSON',{
+                UserName: user.username,
+                UserEmail: user.email,
+                UserId: user.id
+              });
+
+         }else{
+      //TODO: Bool for loginSuccess
+        console.log("Store: Invalid user request");
+        state.loginSuccess= false
+         }
         }//loadPerson
       },
 //changes to make to incoming data
@@ -47,13 +63,20 @@ mutations: {
   //This passes the users data we got in the loadUsers Action and sets it to the state variable/array
   SET_USERS(state, users){
     state.users = users
-    state.UserName = users.username,
-    state.UserId = users.id
-  }
+  },
+  SET_PERSON(state, payload){
+    state.loginSuccess = true;
+    state.UserName = payload.UserName;
+    state.UserEmail = payload.UserEmail;
+    state.UserId = payload.UserId;
+
+  },
+  LOGIN_ERROR(){}
 },
+
 getters: {
 
-        getUserEmail: state => state.email,
+        getUserEmail: state => state.UserEmail,
         getUserName: state => state.UserName,
         getUserId: state => state.UserId
     }

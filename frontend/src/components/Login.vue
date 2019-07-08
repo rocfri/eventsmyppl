@@ -19,21 +19,22 @@
 import api from './backend-api'
 import store from './../store'
 import Vue from 'vue'
-import {mapState} from 'vuex'
-import {mapGetters} from 'vuex'
+
+
 export default {
+
   name: 'login',
   data () {
 
     return {
       message: "Please enter email and password",
       loginError: false,
+      loginSuccess: false,
       vemail: '',
       vpassword: '',
       username:'',
       errors: [],
-      error:'',
-      response: []
+      error:''
     }
   },
 
@@ -49,15 +50,26 @@ export default {
     this.$store.dispatch('loadUsers')
   },
 computed:{
-mapState(['user'])
+
 },//computed
 
   methods: {
     callLogin(){
-      //for demo and testing on frontend
-        console.log ("Call login reached")
-        this.$store.commit('SET_EMAIL', {vemail: target.name }),
-        this.$store.commit('SET_PASS', {vpassword: })
+      this.errors=[];
+        this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
+        .then(() => {
+          let loginSuccess = this.$store.state.loginSuccess;
+            if(loginSuccess === true){
+                this.$router.push('/Dashboard')
+            } else if( loginSuccess === false) {
+              this.message = "Email or password incorrect"
+            }
+        })
+        .catch(error =>{
+          this.loginError = true;
+          this.errors.push(error);
+
+        })
 
       }//callLogin
 
