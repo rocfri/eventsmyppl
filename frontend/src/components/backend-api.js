@@ -23,15 +23,22 @@ export default {
 
         });
     },
-    
+
     getUserData() {
-      console.log("getUserData Reached")
       try{
         console.log("try getData reached")
-        const res = AXIOS.get('/users/')
-        return res.data;
+        return AXIOS.get('/users')
+
         } catch(e){
           console.error(e)
         }
-    }//getUser
+    },//getUser
+
+    getEventData(){
+      try{
+        return AXIOS.get('/events')
+      }catch(ee){
+        console.error(ee)
+      }
+    }//getEvent
 }//

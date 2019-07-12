@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="centermain">
     <h2>Login</h2>
     <h5>{{message}}</h5>
 
@@ -32,13 +32,12 @@ export default {
       loginSuccess: false,
       vemail: '',
       vpassword: '',
-      username:'',
       errors: [],
       error:''
     }
   },
 
-  mounted(){
+  mounted(){  
     //This is a call made to the actual Java backend
     api.hello().then((response) => {
       console.log(response.data);

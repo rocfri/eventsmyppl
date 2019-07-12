@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import api  from './components/backend-api'
+import api from './components/backend-api'
 import axios from 'axios'
 
 Vue.use(Vuex, axios);
@@ -9,6 +9,7 @@ export default new Vuex.Store({
 //Starting State
     state: {
       users:[],
+      events:[],
       foundUser:'',
       UserName: null,
       UserEmail: null,
@@ -18,11 +19,10 @@ export default new Vuex.Store({
     },
 //Action that needs to be taken
   actions: {
+//<<-------------------------Loading User --------------------------------------->>
         loadUsers({commit}){
           console.log ("Load Users")
-          axios.get('http://localhost:3000/users/')
-          .then(data =>{
-            console.log(data.data)
+          api.getUserData().then(data => {
             let users = data.data
             commit('SET_USERS', users)
           })
@@ -54,15 +54,32 @@ export default new Vuex.Store({
          }else{
       //TODO: Bool for loginSuccess
         console.log("Store: Invalid user request");
-        state.loginSuccess= false
+        state.loginSuccess = false
          }
-        }//loadPerson
+       },//loadPerson
+//<<--------------------Events/Tickets------------------------------------------->>
+      loadEvents({commit, state}){
+        console.log("Load Events")
+        api.getEventData().then(data => {
+          let events = data.data
+          commit('SET_EVENTS', events)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      },
+
+        createEvent(){},
+        editEvent(){},
+        deleteEvent(){
+
+        }//End of events, deleteEvent
       },
 //changes to make to incoming data
 mutations: {
   //This passes the users data we got in the loadUsers Action and sets it to the state variable/array
   SET_USERS(state, users){
-    state.users = users
+    state.users = users;
   },
   SET_PERSON(state, payload){
     state.loginSuccess = true;
@@ -71,6 +88,10 @@ mutations: {
     state.UserId = payload.UserId;
 
   },
+  SET_EVENTS(state, events){
+    state.events = events;
+    console.log("Store" + " " + events)
+  },
   LOGIN_ERROR(){}
 },
 
@@ -78,6 +99,8 @@ getters: {
 
         getUserEmail: state => state.UserEmail,
         getUserName: state => state.UserName,
-        getUserId: state => state.UserId
+        getUserId: state => state.UserId,
+
+        getUserEvents: state => state.events
     }
 })

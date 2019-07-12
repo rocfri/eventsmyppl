@@ -13,15 +13,45 @@
       "pass": "4321"
     },
     {
-      "username": "rochelle",
-      "email": "rochelle@live.com",
-      "pass": "1234",
-      "street": "",
-      "city": "",
+      "username": "elephant",
+      "email": "elephie@jungle.org",
+      "pass": "1357",
+      "street": "None",
+      "city": "None",
       "state": "",
       "zip": "",
       "phone": "",
       "id": 102
+    },
+  ],
+  "events": [
+    {
+      "id": 100,
+      "host": 100,
+      "title": "Potluck",
+      "timedate": "August 20th, 2019",
+      "where": "100 myhouse",
+      "who": "burdistheword@jungle.org",
+      "what": "Backyard grill potluck"
+    },
+    {
+      "id": 101,
+      "host": 100,
+      "title": "Evening Ball",
+      "timedate": "September 7th, 2019",
+      "where": "The Fanciest of Places",
+      "who": "burdistheword@jungle.org",
+      "what": "A fancy evening ball, formal dress required"
+    },
+    {
+      "id": 100,
+      "host": 102,
+      "title": "Bedtime",
+      "timedate": "July 12th 2019",
+      "where": "100 myhouse",
+      "who": "monkey@jungle.org",
+      "what": "Going to bed on time can be fun..."
     }
   ]
+
 }

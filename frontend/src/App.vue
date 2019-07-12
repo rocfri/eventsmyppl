@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="centermain">
   <h1>Events.MyPpl</h1>
     <div id="nav">
       <span v-if="isLoggedIn"> <a @click="logout">Logout</a></span>
@@ -7,7 +8,10 @@
       <router-link to="/register">Register</router-link> | <router-link to="/dashboard">Dashboard</router-link>
 
     </div>
+</div>
+
     <router-view></router-view>
+
   </div>
 </template>
 
@@ -39,7 +43,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 20px;
 }
@@ -53,5 +56,8 @@ export default {
      color: #705823;
     }
   }
+}
+.centermain{
+  text-align: center;
 }
 </style>
