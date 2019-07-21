@@ -1,26 +1,38 @@
 package io.eventsmyppl.services;
 
+import io.eventsmyppl.controller.BackendController;
 import io.eventsmyppl.domain.UserProfile;
-import io.eventsmyppl.repository.LoginRepo;
+import io.eventsmyppl.exception.UserNotFoundException;
+import io.eventsmyppl.repository.UserRepo;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Service
 public class LoginService {
-//testing user
-	private UserProfile login1 = new UserProfile ("123", "soandso@gmail.com", "password");
-	
-	private LoginRepo loginRepo;
 
-	public void addProfile (UserProfile newprofile) {
+private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 
-		loginRepo.save(newprofile);
-	}
+	private UserRepo loginRepo;
+
+	public void findProfile (String useremail, String username) {
+		try {
+		String email = loginRepo.findByuserEmail(useremail).toString();
+		String user = loginRepo.findByuserName(username).toString();
+				
+	     LOG.info("User found with email: " + email);
+	   
+	}catch(Exception e) {
+		LOG.error(e.toString());
+		}
+	}//
 	
 	public String displayWelcome() {
-		String printUser = login1.getUserEmail();
-		String welcome = "Welcome " + printUser;
+		String welcome = "Welcome " ;
 		return welcome;
 		
 	}
