@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const AXIOS = axios.create({
-  baseURL: `http://localhost:3000`,
+  baseURL: '/api',
+  //Quick test to JSON server `http://localhost:3000`,
   timeout: 1000
 });
 
@@ -10,17 +11,12 @@ export default {
     hello() {
         return AXIOS.get(`/`);
     },
-    createUser(username, email, pass, street, city, state, zip, phone) {
-        return AXIOS.post('/users',{
+    createUser(username, email, pass) {
+      console.log("createUser Frontend found");
+        return AXIOS.post('/register',{
             username: username,
             email: email,
-            pass: pass,
-            street: street,
-            city: city,
-            state: state,
-            zip: zip,
-            phone: phone
-
+            pass: pass
         });
     },
 

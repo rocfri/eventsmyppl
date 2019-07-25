@@ -37,7 +37,7 @@ export default {
     }
   },
 
-  mounted(){  
+  mounted(){
     //This is a call made to the actual Java backend
     api.hello().then((response) => {
       console.log(response.data);
@@ -46,7 +46,7 @@ export default {
     .catch(e => {
       this.errors.push(e)
     });
-    this.$store.dispatch('loadUsers')
+    //this.$store.dispatch('loadUsers')
   },
 computed:{
 
@@ -55,8 +55,8 @@ computed:{
   methods: {
     callLogin(){
       this.errors=[];
-        this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
-        .then(() => {
+      //  this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
+      //  .then(() => {
           let loginSuccess = this.$store.state.loginSuccess;
             if(loginSuccess === true){
                 this.$router.push('/Dashboard')

@@ -18,7 +18,9 @@ private String userEmail;
  //User password
 @Column(name="password")
  private String userPass;
-//user street address
+//user street address 
+//TODO - Separate Address Table. Considerations based on research:
+//1. Using "junction" table for address to user relation. 2. Using Lookup table for city state, country, zip for consistency. 
 @Column (name = "address")
  private String userStreet;
 //user phone number
@@ -36,7 +38,7 @@ private String userEmail;
  	this.userPass = userPass;
  }
 
- public UserProfile(long id,String userName, String userEmail, String userPass, String userStreet, String userPhone) {
+ public UserProfile(long id, String userName, String userEmail, String userPass, String userStreet, String userPhone) {
 	 super();
 	 this.id = id;
 	 this.userName = userName;

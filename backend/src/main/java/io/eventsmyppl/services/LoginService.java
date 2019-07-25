@@ -32,7 +32,7 @@ private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 	}//
 	
 	public String displayWelcome() {
-		String welcome = "Welcome " ;
+		String welcome = "Welcome: The back end sees you " ;
 		return welcome;
 		
 	}

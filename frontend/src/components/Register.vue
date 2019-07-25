@@ -46,10 +46,10 @@ data () {
 methods: {
   userRegister(){
 
-    api.createUser(this.username, this.email, this.password, this.street, this.city, this.state, this.zip, this.phone).then(response => {
+    api.createUser(this.username, this.email, this.password).then(response => {
 
         this.response =  response.data;
-        console.log('User created: ' + response.data.username);
+        console.log('User created: ' + response.data);
       })
       .catch(e => {
         this.errors.push(e)
@@ -58,11 +58,6 @@ methods: {
       this.username =''
       this.email =''
       this.password =''
-      this.street =''
-      this.city=''
-      this.state=''
-      this.zip=''
-      this.phone=''
 
   }
 

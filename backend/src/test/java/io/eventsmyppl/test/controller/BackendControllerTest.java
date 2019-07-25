@@ -28,7 +28,10 @@ public class BackendControllerTest {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
     }
-
+	@Test 
+public void newUser() {
+	
+}
     @Test
 	public void trueTest(){
 		assertEquals(6,6);
