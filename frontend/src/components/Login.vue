@@ -55,8 +55,8 @@ computed:{
   methods: {
     callLogin(){
       this.errors=[];
-      //  this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
-      //  .then(() => {
+       this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
+        .then(() => {
           let loginSuccess = this.$store.state.loginSuccess;
             if(loginSuccess === true){
                 this.$router.push('/Dashboard')

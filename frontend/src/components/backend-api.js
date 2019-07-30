@@ -11,12 +11,21 @@ export default {
     hello() {
         return AXIOS.get(`/`);
     },
-    createUser(username, email, pass) {
+
+    createUser(username, email, password, phone, street) {
+
       console.log("createUser Frontend found");
         return AXIOS.post('/register',{
-            username: username,
-            email: email,
-            pass: pass
+          headers:{
+            'Content-Type': 'application/json',
+          },
+
+            userName: username,
+            userEmail: email,
+            userPass: password,
+            userStreet: street,
+            userPhone: phone
+
         });
     },
 

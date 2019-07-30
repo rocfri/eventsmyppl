@@ -38,14 +38,13 @@ private String userEmail;
  	this.userPass = userPass;
  }
 
- public UserProfile(long id, String userName, String userEmail, String userPass, String userStreet, String userPhone) {
+ public UserProfile(String userName, String userEmail, String userPass, String userStreet, String userPhone) {
 	 super();
-	 this.id = id;
 	 this.userName = userName;
 	 this.userEmail = userEmail;
 	 this.userPass = userPass;
 	 this.userStreet = userStreet;
-	
+
 	 this.userPhone = userPhone;
 	 
  	}//basic constructor
@@ -73,6 +72,13 @@ public String getUserEmail() {
 public void setUserEmail(String userEmail) {
 	this.userEmail = userEmail;
 }
+public String getUserPass() {
+	return userPass;
+}
+public void setUserPass(String userPass) {
+	this.userPass = userPass;
+}
+
 
 public String getUserStreet() {
 	return userStreet;
@@ -81,11 +87,11 @@ public void setUserStreet(String userStreet) {
 	this.userStreet = userStreet;
 }
 
-public String getUserPhoneNo() {
+public String getUserPhone() {
 	return userPhone;
 }
-public void setUserPhoneNo(String userPhoneNo) {
-	this.userPhone = userPhoneNo;
+public void setUserPhone(String userPhone) {
+	this.userPhone = userPhone;
 }
 
 

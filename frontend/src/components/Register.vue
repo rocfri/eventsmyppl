@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="justify">
     <h1>Register an Account</h1>
 
     <form @submit.prevent="userRegister()">
@@ -35,18 +35,24 @@ data () {
     username: '',
     email:'',
     password:'',
-    street:'',
+    street:' ',
     city:'',
     state:'',
     zip:'',
-    phone:''
+    phone:' ',
+
+    userName:'',
+    userEmail:'',
+    userPass:'',
+    userStreet:'',
+    userPhone:''
   }
 },
 
 methods: {
   userRegister(){
 
-    api.createUser(this.username, this.email, this.password).then(response => {
+    api.createUser(this.username, this.email, this.password, this.phone, this.street).then(response => {
 
         this.response =  response.data;
         console.log('User created: ' + response.data);
@@ -55,9 +61,11 @@ methods: {
         this.errors.push(e)
       })
 
-      this.username =''
+    this.username =''
       this.email =''
-      this.password =''
+    this.password =''
+    this.phone =''
+    this.street =''
 
   }
 
@@ -69,5 +77,8 @@ methods: {
 <style>
 .smallInput{
   width: 50px;
+}
+#justify{
+  width: 80%;
 }
 </style>
