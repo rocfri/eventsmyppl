@@ -22,8 +22,11 @@ export default new Vuex.Store({
 //<<-------------------------Loading User --------------------------------------->>
         loadUsers({commit}){
           console.log ("Load Users")
-          api.getUserData().then(data => {
+          //api.getUserData() //<--Attachment to real API; replace below line
+          axios.get('http://localhost:3000/users/')
+          .then(data => {
             let users = data.data
+            console.log("store::loadUsers:: "+ users)
             commit('SET_USERS', users)
           })
           .catch(error => {
@@ -34,21 +37,21 @@ export default new Vuex.Store({
           //TODO
         },
   findPerson({commit, state},{email, password}){
-
+    console.log("store:: findPerson reached")
       let users = state.users
 
       let foundUser = users.filter(user =>{
-          return email === user.email && password === user.pass;
+          return email === user.userEmail && password === user.userPass;
         });
-
+        console.log(foundUser);
           if(foundUser.length){
             let user = foundUser[0];
-            console.log("User:" + user.username +" " +"found")
+            console.log("User:" + user.userName +" " +"found");
             //setter
               commit('SET_PERSON',{
-                UserName: user.username,
-                UserEmail: user.email,
-                UserId: user.id
+                UserName: user.userName,
+                UserEmail: user.userEmail,
+                id: user.id
               });
 
          }else{
@@ -60,7 +63,8 @@ export default new Vuex.Store({
 //<<--------------------Events/Tickets------------------------------------------->>
       loadEvents({commit, state}){
         console.log("Load Events")
-        api.getEventData().then(data => {
+        api.getEventData()
+        .then(data => {
           let events = data.data
           commit('SET_EVENTS', events)
         })

@@ -9,7 +9,7 @@ public class UserProfile {
 //User's Actual Name or the Name they want to use. Email is used for sign in.
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private long id;
+private int id;
 @Column(name = "username")
 private String userName;
 //User's email used for sign in
@@ -51,11 +51,11 @@ private String userEmail;
  
  //Setters Getters
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

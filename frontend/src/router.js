@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+import Event from '@/components/Event'
 
 
 import store from './store'
@@ -14,6 +15,7 @@ const router = new Router({
     routes: [
         { path: '/', component: Login,},
         {path:'/dashboard', component: Dashboard},
+        {path:'/event', component: Event},
         { path: '/register', component: Register},
 
         // otherwise redirect to home

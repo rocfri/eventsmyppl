@@ -25,6 +25,7 @@ logback.out.xml
 
 backend/src/main/resources/public/
 backend/target
+frontend
 frontend/dist/
 frontend/node/
 frontend/node_modules/

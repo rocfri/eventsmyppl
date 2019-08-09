@@ -5,7 +5,7 @@
     <div id="nav">
       <span v-if="isLoggedIn"> <a @click="logout">Logout</a></span>
       <span v-else> <router-link to="/">Login</router-link> | </span>
-      <router-link to="/register">Register</router-link> | <router-link to="/dashboard">Dashboard</router-link>
+      <router-link to="/register">Register</router-link> | <router-link to="/dashboard">Dashboard</router-link> | <router-link to="/event"> Event WIP</router-link>
 
     </div>
 </div>
