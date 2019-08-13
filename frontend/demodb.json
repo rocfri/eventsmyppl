@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": 100,
+      "userName": "Monkey",
+      "userEmail": "monkey@jungle.org",
+      "userPass": "1234"
+    },
+    {
+      "id": 103,
+      "userEmail": "birdistheword@tree.org",
+      "userName": "birdie",
+      "userPass": "4321",
+      "userPhone": "",
+      "userStreet": ""
+    },
+    {
+      "userName": "python",
+      "userEmail": "snaaake@jungle.org",
+      "userPass": "5n4k3!",
+      "userStreet": " ",
+      "userPhone": " ",
+      "id": 104
+    },
+    {
+      "userName": "Fruit Bat",
+      "userEmail": "mangolover@cave.com",
+      "userPass": "0000",
+      "userStreet": "Cave cave",
+      "userPhone": " ",
+      "id": 105
+    }
+  ],
+  "events": [
+    {
+      "eventTitle": "Proto",
+      "eventTime": "",
+      "eventLoc": "",
+      "eventDetail": "",
+      "eventGuest": "",
+      "userId": null,
+      "id": 100
+    },
+    {
+      "eventTitle": "Bird House Rock",
+      "eventDate": "2019-08-13",
+      "eventTime": "17:00",
+      "eventLoc": "Bird Nest Place",
+      "eventDetail": "Be ready to rock",
+      "eventGuest": "",
+      "userId": 103,
+      "id": 101
+    },
+    {
+      "eventTitle": "Bird Nest Rest",
+      "eventDate": "2019-08-14",
+      "eventTime": "09:00",
+      "eventLoc": "Bird Nest Place",
+      "eventDetail": "Grub and worm breakfast!",
+      "eventGuest": "",
+      "userId": 103,
+      "id": 102
+    },
+    {
+      "eventTitle": "Banana Split Sunday",
+      "eventDate": "2019-08-18",
+      "eventTime": "10:00",
+      "eventLoc": "Jungle Diner",
+      "eventDetail": "Come get some bananas and icecream",
+      "eventGuest": "",
+      "userId": 100,
+      "id": 103
+    },
+    {
+      "eventTitle": "Bond Fire Night",
+      "eventDate": "2019-08-18",
+      "eventTime": "21:00",
+      "eventLoc": "Outside",
+      "eventDetail": "Stories and Smores with banana-chocolate",
+      "eventGuest": "",
+      "userId": 100,
+      "id": 104
+    }
+  ]
+}

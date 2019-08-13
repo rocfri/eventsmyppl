@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="centermain">
+    <div>
     <h1><b-badge>Dashboard</b-badge></h1>
     <h3>Welcome {{ username }}</h3>
 
@@ -79,10 +79,12 @@ export default {
       username:'',
       userid:'',
       newevent:'',
+
       securedApiCallSuccess: false,
       errors: null,
 
 //Event Display list
+    userevents:[],
       title:'',
       location:'',
       timedate:'',
@@ -97,7 +99,7 @@ export default {
   },
 
   mounted() {
-    this.displayUserInfo(),
+    this.displayUserInfo()
     this.displayEvents()
   },
   methods: {
@@ -106,15 +108,11 @@ export default {
       this.username = store.getters.getUserName;
       this.userid = store.getters.getUserId;
        this.useremail = store.getters.getUserEmail;
-      console.log("display User Info :" + username + " " + userid + " " + useremail);
+
     },
     displayEvents(){
       this.$store.dispatch('loadEvents');
-    //  this.userevents= store.getters.getUserEvents;
-    //  console.log(userevents)
-
-
-    }
+  }
   /**  getSecuredTextFromBackend() {
       api.getUser(store.getters.getUserEmail, store.getters.getUserPass)
               .then(response => {

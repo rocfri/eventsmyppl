@@ -30,7 +30,7 @@ export default {
     getUserData() {
       try{
         console.log("try getData reached")
-        return AXIOS.get('/users')
+        return AXIOS.get('/users' + UserId)
 
         } catch(e){
           console.error(e)
