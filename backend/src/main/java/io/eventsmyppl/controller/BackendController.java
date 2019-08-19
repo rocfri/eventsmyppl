@@ -3,46 +3,50 @@ package io.eventsmyppl.controller;
 import io.eventsmyppl.domain.UserProfile;
 import io.eventsmyppl.exception.UserNotFoundException;
 import io.eventsmyppl.repository.UserRepo;
+import io.eventsmyppl.services.ILoginSvc;
 import io.eventsmyppl.services.IRegistrationSvc;
 import io.eventsmyppl.services.LoginService;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @RestController()
 @RequestMapping("/api")
 public class BackendController {
-
+//Final 
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
-
-
-    public static final String SECURED_TEXT = "Hello from the secured resource!";
-
-    @Autowired
+   @Autowired
     private IRegistrationSvc regisRepo;
-
-    @Autowired
-	private LoginService loginService;
-
-
-
+   @Autowired
+    private ILoginSvc loginSvc;
+   
 @RequestMapping(path = "/", method = RequestMethod.GET)
 	public String helloWorld(){
-    String HELLO_TEXT = loginService.displayWelcome();
+    String HELLO_TEXT = loginSvc.displayWelcome();
 
     return HELLO_TEXT;
 	}
-
+//Post User Mappings
  @PostMapping("/register")
- ResponseEntity<?> createUser (@RequestBody UserProfile userprofile) throws URISyntaxException {
+ ResponseEntity<?> createUser (@RequestBody UserProfile userprofile) throws Exception {
 	 LOG.info("BackendController createUser reached");
 	 //Adding to Backend/Service
 	 UserProfile checkCreate = regisRepo.addProfile(userprofile);
@@ -62,17 +66,39 @@ public class BackendController {
 	 }	  
 	  
 }//Create user
+
+ @PostMapping ("/login")
+    public void getUser(String email) { //return int
+	 ObjectNode json = mapper.readTree();
+	 System.out.println("BackendController :: getUser::" + email);
+	 
+	 
+/*	 
+	 System.out.println("Backend Controller:: getUser :: msg converter" + list);
+	 //To be replaced by actual validation. First making sure I have right request for return
+	boolean isValidUser = true;
+		
+	 if(isValidUser) {
+		int userid = loginSvc.findProfile(email);
+		return userid;
+	 }else {
+		 System.out.println(" ELSE REACHED --------------------------------------------------------------------------------->>>");
+		return 0;
+	 }*/
+		 
+  }//Post to Find
+ 
+ @PostMapping("/error")
+public String errorMsg(){
+		 return "Sorry, there was an error retrieving this page. Please try again later.";
+	 }
+ }//Error String
+
 /*
- @GetMapping(path = "/user/{id}")
-    public @ResponseBody User getUserById(@PathVariable("id") long id) {
-
-       
-    }
-
     @RequestMapping(path="/secured", method = RequestMethod.GET)
     public @ResponseBody String getSecured() {
         LOG.info("GET successfully called on /secured resource");
         return SECURED_TEXT;
     }*/
 
-}
+
