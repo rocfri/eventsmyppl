@@ -24,9 +24,8 @@ export default new Vuex.Store({
 //<<-------------------------Loading User --------------------------------------->>
   loadUsers({commit}){
       console.log ("Load Users")
-<<<<<<< Updated upstream
-      //api.getUserData() //<--Attachment to real API; replace below line
-      axios.get('http://localhost:3000/users/')
+      api.getUserData() //<--Attachment to real API; replace below line
+      //axios.get('http://localhost:3000/users/')
 =======
       api.getUserData() //<--Attachment to real API; replace below line
       //axios.get('http://localhost:3000/users/')
@@ -52,7 +51,11 @@ export default new Vuex.Store({
 
       let foundUser = users.filter(user =>{
 <<<<<<< Updated upstream
-        //=== no type conversion 
+<<<<<<< Updated upstream
+        //=== no type conversion
+=======
+        //=== no type conversion
+>>>>>>> Stashed changes
 =======
         //=== no type conversion
 >>>>>>> Stashed changes

@@ -3,10 +3,9 @@
     <div class="centermain">
   <h1>Events.MyPpl</h1>
     <div id="nav">
-<<<<<<< Updated upstream
-      <span v-if="isLoggedIn"> <a @click="logout">Logout </a></span>
+      <span v-if="isLoggedIn"> <router-link to="/" @click="logout">Logout </router-link></span>
       <span v-else> <router-link to="/">Login</router-link> | <router-link to="/register">Register</router-link></span>
-      | <router-link to="/dashboard">Dashboard</router-link> | <router-link to="/event"> Event WIP</router-link>
+      | <router-link to="/dashboard">Dashboard</router-link> <span v-if="isLoggedIn">| <router-link to="/event"> Event WIP</router-link></span>
 =======
       <span v-if="isLoggedIn"> <router-link to="/" @click="logout">Logout </router-link></span>
       <span v-else> <router-link to="/">Login</router-link> | <router-link to="/register">Register</router-link></span>

@@ -20,62 +20,7 @@ import org.slf4j.LoggerFactory;
 @Service
 public class LoginService implements ILoginSvc{
 
-<<<<<<< Updated upstream
-private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
-	@Autowired
-	private UserRepo crudRepo;
-	
-	public List<UserProfile> getUsers(){
-		List<UserProfile> userlist = new ArrayList<>();
-		
-		crudRepo.findAll().forEach(userlist::add);	
-		
-		return userlist;	
-	}
-	@Override
-	//may need this to be seperate isValid and int lookup for ID
-	public boolean validateProfile() {
-		return true;
-	}
-	
-	@Override
-	public int findProfile (String useremail) {
-	try {
-=======
-<<<<<<< HEAD
-		private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
-			@Autowired
-			private UserRepo crudRepo;
-			
-			public List<UserProfile> getUsers(){
-				List<UserProfile> userlist = new ArrayList<>();
-				
-				crudRepo.findAll().forEach(userlist::add);	
->>>>>>> Stashed changes
-				
-			UserProfile userProfile = crudRepo.findByuserEmail(useremail).get(0);
-			
-			if (userProfile != null) {
-				System.out.println("====/// User Found with username :: " + userProfile.getUserName());
-				return userProfile.getId();
-				/*if (userProfile.getUserPass().toString() == password) {
-					System.out.println("=============// LoginSerive :: Password Accepted");
-					return true;
-					
-				}else {
-					return 0;
-				}*/
-			}
-			
-		   
-		}catch(Exception e) {
-			LOG.error(e.toString());
-			}
-<<<<<<< Updated upstream
-=======
-		}//Class
-=======
-private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 	@Autowired
 	private UserRepo crudRepo;
 	
@@ -114,7 +59,6 @@ private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 		}catch(Exception e) {
 			LOG.error(e.toString());
 			}
->>>>>>> Stashed changes
 	
 		return 0;
 	}//UserProfile
@@ -124,8 +68,6 @@ private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 		return welcome;
 		
 	}
+
 }//Class
-<<<<<<< Updated upstream
-=======
->>>>>>> frontdesign
->>>>>>> Stashed changes
+

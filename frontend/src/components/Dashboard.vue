@@ -40,20 +40,6 @@
   </b-list-group></div></b-col>
 <b-col>
   <h2>Contacts</h2>
-<<<<<<< Updated upstream
-  <b-card-group deck>
-    <b-card
-    bg-variant="light"
-    style="max-width: 20rem; height: 10rem;"
-    img-src="" img-alt="contact" img-top>
-      <b-card-text>MIA</b-card-text>
-    </b-card>
-    <b-card img-src="" img-alt="contact" img-top>
-        <b-card-text>Jane Doe</b-card-text>
-      </b-card>
-      <b-card img-src="" img-alt="contact" img-top>
-        <b-card-text>Jon Doe</b-card-text>
-      </b-card>
 =======
   <b-card-group deck v-for="u in contacts">
     <b-card
@@ -63,7 +49,6 @@
       <b-btn @click="invite">Invite</b-btn>
     </b-card>
 
->>>>>>> Stashed changes
 </b-card-group>
 </b-col>
 </b-row>
@@ -99,8 +84,9 @@ export default {
       title:'',
       location:'',
       timedate:'',
-<<<<<<< Updated upstream
-      when:''
+      when:'',
+      role:'Host', //If statement to change this
+      accept: false //TODO for guest
 =======
       when:'',
       role:'Host', //If statement to change this
@@ -118,7 +104,7 @@ export default {
 
   mounted() {
     this.displayUserInfo()
-<<<<<<< Updated upstream
+    this.displayContacts()
 =======
     this.displayContacts()
 >>>>>>> Stashed changes
@@ -140,7 +126,7 @@ export default {
     displayEvents(){
       this.$store.dispatch('loadEvents');
   }
-<<<<<<< Updated upstream
+
 =======
 
 >>>>>>> Stashed changes
