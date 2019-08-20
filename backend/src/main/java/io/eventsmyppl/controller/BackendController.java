@@ -5,8 +5,10 @@ import io.eventsmyppl.exception.UserNotFoundException;
 import io.eventsmyppl.repository.UserRepo;
 import io.eventsmyppl.services.ILoginSvc;
 import io.eventsmyppl.services.IRegistrationSvc;
-import io.eventsmyppl.services.LoginService;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -26,7 +28,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @RestController()
 @RequestMapping("/api")
@@ -68,8 +72,11 @@ public class BackendController {
 }//Create user
 
  @PostMapping ("/login")
-    public void getUser(String email) { //return int
-	 ObjectNode json = mapper.readTree();
+    public void getUser(String email) throws IOException { //return int
+	 
+	ObjectMapper mapper = new ObjectMapper();
+	JsonNode json = mapper.readTree(email);
+	 System.out.println(json.get("f1").asText());
 	 System.out.println("BackendController :: getUser::" + email);
 	 
 	 
