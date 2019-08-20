@@ -38,15 +38,16 @@ export default {
   },
 
   mounted(){
-    //This is a call made to the actual Java backend
+    //This is a call made to API when active
     api.hello().then((response) => {
       console.log(response.data);
 
     })
+
     .catch(e => {
       this.errors.push(e)
     });
-    //this.$store.dispatch('loadUsers')
+    this.$store.dispatch('loadUsers')
   },
 computed:{
 

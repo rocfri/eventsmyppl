@@ -1,5 +1,6 @@
 <template>
-<div id="justify">
+<div>
+
     <h1>Register an Account</h1>
 
     <form @submit.prevent="userRegister()">
