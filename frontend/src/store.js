@@ -24,8 +24,13 @@ export default new Vuex.Store({
 //<<-------------------------Loading User --------------------------------------->>
   loadUsers({commit}){
       console.log ("Load Users")
+<<<<<<< Updated upstream
       //api.getUserData() //<--Attachment to real API; replace below line
       axios.get('http://localhost:3000/users/')
+=======
+      api.getUserData() //<--Attachment to real API; replace below line
+      //axios.get('http://localhost:3000/users/')
+>>>>>>> Stashed changes
       .then(data => {
         let users = data.data
         console.log("store::loadUsers:: "+ users)
@@ -46,7 +51,11 @@ export default new Vuex.Store({
       let users = state.users
 
       let foundUser = users.filter(user =>{
+<<<<<<< Updated upstream
         //=== no type conversion 
+=======
+        //=== no type conversion
+>>>>>>> Stashed changes
           return email === user.userEmail && password === user.userPass;
         });
 
@@ -109,6 +118,7 @@ mutations: {
   //This passes the users data we got in the loadUsers Action and sets it to the state variable/array
   SET_USERS(state, users){
     state.users = users;
+
   },
   SET_PERSON(state, payload){
     localStorage.setItem('login_success', state.loginSuccess = true);
@@ -138,6 +148,7 @@ getters: {
         getUserName: state => state.UserName,
         getUserId: state => state.UserId,
 
+        getContacts: state => state.users,
         getUserEvents: state => state.events
     }
 })

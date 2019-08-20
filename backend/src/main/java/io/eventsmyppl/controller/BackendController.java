@@ -74,12 +74,17 @@ public class BackendController {
 	  
 }//Create user
 
+<<<<<<< HEAD
  @PostMapping ("/login")
 public void getUser(String email) throws IOException { //return int
 	 
 	ObjectMapper mapper = new ObjectMapper();
 	JsonNode json = mapper.readTree(email);
 	 System.out.println(json.get("f1").asText());
+=======
+ @PostMapping (value = "/login", consumes = "text/plain")
+    public void getUser(String email) { //return int
+>>>>>>> frontdesign
 	 System.out.println("BackendController :: getUser::" + email);
 	 
 	 

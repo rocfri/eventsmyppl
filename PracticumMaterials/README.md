@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EventsMyPpl
 Version 0.3
 DB info has been added at this stage and the user submission from frontend to backend. Unforunately, this will not be very functional as is. Wanted to make some changes to the DB as I continued with this user domain object and will be removing address from it entirely, but I was still seeing how it would pass and receive the JSON file at this point. 
@@ -23,3 +24,8 @@ it'll come up on http://localhost:8088
 
 See the Frontend
 To run the front end: go into the frontend directory and run **npm run serve** like you'd run most JS frameworks. You'll need Node and Npm to do this. For developing and testing the frontend framework I had paired thsi with JSON-server. This is no longer set up in project. 
+=======
+## Field Notebook Pictures
+These are the pages in my (practicum) field notebook that pertain to this project. I keep many notes about syntax and tips/tricks. A lot of it isn't entirely ledgeable, but writing it down serves to help with learning.
+ 
+>>>>>>> frontdesign

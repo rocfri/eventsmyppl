@@ -18,7 +18,7 @@
 
     <span class="mt-0 mb-1"><span id="title">{{e.eventTitle}}</span> @ {{e.eventLoc}} || {{e.eventDate}} {{e.eventTime}}</span>
     <br>
-    You Are: <a href="#">Invited</a>
+    You Are: <a href="/Event">{{role}}</a>
     <p class="mb-4">
       {{e.what}}
     </p>
@@ -32,14 +32,15 @@
 <b-row>
 <b-col> <div id="dim"><h3>Messages</h3>
   <b-list-group>
-    <b-list-group-item>Cras justo odio</b-list-group-item>
-    <b-list-group-item>Dapibus ac facilisis in</b-list-group-item>
-    <b-list-group-item>Morbi leo risus</b-list-group-item>
-    <b-list-group-item>Porta ac consectetur ac</b-list-group-item>
-    <b-list-group-item>Vestibulum at eros</b-list-group-item>
+    <b-list-group-item>Chat With Birdie</b-list-group-item>
+    <b-list-group-item>Chat with Vendor</b-list-group-item>
+    <b-list-group-item>Msgs TODO: Module</b-list-group-item>
+    <b-list-group-item>Msg TODO: More flexible DB</b-list-group-item>
+    <b-list-group-item>Chat with Tiger</b-list-group-item>
   </b-list-group></div></b-col>
 <b-col>
   <h2>Contacts</h2>
+<<<<<<< Updated upstream
   <b-card-group deck>
     <b-card
     bg-variant="light"
@@ -53,6 +54,16 @@
       <b-card img-src="" img-alt="contact" img-top>
         <b-card-text>Jon Doe</b-card-text>
       </b-card>
+=======
+  <b-card-group deck v-for="u in contacts">
+    <b-card
+    bg-variant="light"
+    img-src="" img-alt="contact" img-top >
+      <b-card-text>{{u.userName}}</b-card-text>
+      <b-btn @click="invite">Invite</b-btn>
+    </b-card>
+
+>>>>>>> Stashed changes
 </b-card-group>
 </b-col>
 </b-row>
@@ -88,22 +99,38 @@ export default {
       title:'',
       location:'',
       timedate:'',
+<<<<<<< Updated upstream
       when:''
+=======
+      when:'',
+      role:'Host', //If statement to change this
+      accept: false //TODO for guest
+>>>>>>> Stashed changes
 
     }
   },
   computed: {
     ...mapGetters({
-      events: 'getUserEvents'
+      events: 'getUserEvents',
+      contacts: 'getContacts'
     })
   },
 
   mounted() {
     this.displayUserInfo()
+<<<<<<< Updated upstream
+=======
+    this.displayContacts()
+>>>>>>> Stashed changes
     this.displayEvents()
   },
   methods: {
-    //test
+    invite(){
+      alert("Hi");
+    },
+    displayContacts(){
+      this.$store.dispatch('loadUsers');
+    },
     displayUserInfo(username, userid, useremail){
       this.username = store.getters.getUserName;
       this.userid = store.getters.getUserId;
@@ -113,6 +140,10 @@ export default {
     displayEvents(){
       this.$store.dispatch('loadEvents');
   }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   /**  getSecuredTextFromBackend() {
       api.getUser(store.getters.getUserEmail, store.getters.getUserPass)
               .then(response => {
