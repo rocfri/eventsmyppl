@@ -36,12 +36,19 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
 <!-- Embedded DB for easy local testing -->
     	<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+<!-- JSON Converter -->
+   <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
 <!-- DB -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
