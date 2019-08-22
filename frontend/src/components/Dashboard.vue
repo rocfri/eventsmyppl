@@ -40,7 +40,6 @@
   </b-list-group></div></b-col>
 <b-col>
   <h2>Contacts</h2>
-=======
   <b-card-group deck v-for="u in contacts">
     <b-card
     bg-variant="light"
@@ -87,11 +86,7 @@ export default {
       when:'',
       role:'Host', //If statement to change this
       accept: false //TODO for guest
-=======
-      when:'',
-      role:'Host', //If statement to change this
-      accept: false //TODO for guest
->>>>>>> Stashed changes
+
 
     }
   },
@@ -105,9 +100,6 @@ export default {
   mounted() {
     this.displayUserInfo()
     this.displayContacts()
-=======
-    this.displayContacts()
->>>>>>> Stashed changes
     this.displayEvents()
   },
   methods: {
@@ -127,9 +119,7 @@ export default {
       this.$store.dispatch('loadEvents');
   }
 
-=======
 
->>>>>>> Stashed changes
   /**  getSecuredTextFromBackend() {
       api.getUser(store.getters.getUserEmail, store.getters.getUserPass)
               .then(response => {

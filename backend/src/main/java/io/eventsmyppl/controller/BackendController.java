@@ -10,14 +10,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,18 +66,15 @@ public class BackendController {
 	  
 }//Create user
 
-<<<<<<< HEAD
  @PostMapping ("/login")
-public void getUser(String email) throws IOException { //return int
+public void getUser() throws IOException { //return int
+	 String jobject = " { \"email\" : \"emailaddress\"} ";
 	 
 	ObjectMapper mapper = new ObjectMapper();
-	JsonNode json = mapper.readTree(email);
-	 System.out.println(json.get("f1").asText());
-=======
- @PostMapping (value = "/login", consumes = "text/plain")
-    public void getUser(String email) { //return int
->>>>>>> frontdesign
-	 System.out.println("BackendController :: getUser::" + email);
+	JsonNode json = mapper.readTree(jobject);
+	 System.out.println("BackendController:: getUser " + json.get("email").asText()); 
+
+	 System.out.println("BackendController :: getUser:: Reached" );
 	 
 	 
 /*	 

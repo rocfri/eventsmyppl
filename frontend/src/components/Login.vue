@@ -1,6 +1,6 @@
 <template>
   <div class="centermain">
-    <h2>Login</h2>
+    <h2>Login - removed logic</h2>
     <h5>{{message}}</h5>
 
     <form @submit.prevent="callLogin()">
@@ -47,8 +47,10 @@ export default {
     .catch(e => {
       this.errors.push(e)
     });
-    this.$store.dispatch('loadUsers')
+
+    //this.$store.dispatch('loadUsers')
   },
+
 computed:{
 
 },//computed
@@ -56,8 +58,14 @@ computed:{
   methods: {
     callLogin(){
       this.errors=[];
-       this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
-        .then(() => {
+      // this.$store.dispatch("findPerson", {email: this.vemail, password: this.vpassword })
+      api.getUserData({email: this.vemail}).then((response) => {
+          console.log(response.data);
+        })
+        .catch(e => {
+          this.error.push(e)
+        });
+          /*
           let loginSuccess = this.$store.state.loginSuccess;
             if(loginSuccess === true){
                 this.$router.push('/Dashboard')
@@ -70,7 +78,7 @@ computed:{
           this.errors.push(error);
 
         })
-
+*/
       }//callLogin
 
 },//methods

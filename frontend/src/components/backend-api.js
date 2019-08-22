@@ -15,8 +15,7 @@ export default {
     createUser(username, email, password, phone, street) {
 
       console.log("Backend API :: createUser Frontend found");
-//This changes to /register with api attached
-        return AXIOS.post('/users',{
+        return AXIOS.post('/register',{
 
             userName: username,
             userEmail: email,
@@ -27,10 +26,12 @@ export default {
         });
     },//ceateUser
 
-    getUserData() {
+    getUserData(email) {
       try{
-        console.log("try getData reached")
-        return AXIOS.get('/users' + UserId)
+        console.log("backend-api:: getUserData ::")
+        return AXIOS.post('/login', {
+          email: email
+        });
 
         } catch(e){
           console.error(e)

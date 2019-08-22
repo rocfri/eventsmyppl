@@ -26,10 +26,7 @@ export default new Vuex.Store({
       console.log ("Load Users")
       api.getUserData() //<--Attachment to real API; replace below line
       //axios.get('http://localhost:3000/users/')
-=======
-      api.getUserData() //<--Attachment to real API; replace below line
-      //axios.get('http://localhost:3000/users/')
->>>>>>> Stashed changes
+
       .then(data => {
         let users = data.data
         console.log("store::loadUsers:: "+ users)
@@ -45,40 +42,7 @@ export default new Vuex.Store({
       localStorage.removeItem('login_success');
         },
   //DEMO logic
-  findPerson({commit, state},{email, password}){
-    console.log("store:: findPerson reached")
-      let users = state.users
 
-      let foundUser = users.filter(user =>{
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        //=== no type conversion
-=======
-        //=== no type conversion
->>>>>>> Stashed changes
-=======
-        //=== no type conversion
->>>>>>> Stashed changes
-          return email === user.userEmail && password === user.userPass;
-        });
-
-          if(foundUser.length){
-            let user = foundUser[0];
-            console.log("User:" + user.userName +" " +"found");
-
-            //setter
-              commit('SET_PERSON',{
-                UserName: user.userName,
-                UserEmail: user.userEmail,
-                UserId: user.id
-              });
-
-         }else{
-
-        console.log("Store: Invalid user request");
-        state.loginSuccess = false
-         }
-       },//loadPerson
 //<<--------------------Events/Tickets------------------------------------------->>
   loadEvents({commit, state}){
         console.log("Store :: Load Events")

@@ -2,6 +2,7 @@ package io.eventsmyppl.test.controller;
 
 import io.eventsmyppl.EventsMyPplApplication;
 import io.restassured.RestAssured;
+import io.eventsmyppl.controller.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.http.HttpStatus;
+
+import static io.restassured.RestAssured.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
@@ -29,9 +33,11 @@ public class BackendControllerTest {
         RestAssured.port = port;
     }
 	@Test 
-public void newUser() {
-	
-}
+	public void getUserEmail() {
+			when().get("/api/login")
+		.then().statusCode(HttpStatus.SC_OK);
+			
+	}
     @Test
 	public void trueTest(){
 		assertEquals(6,6);
